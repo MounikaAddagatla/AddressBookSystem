@@ -36,29 +36,7 @@ namespace AddressBookSystem
                 Console.WriteLine(data.FirstName + " " + data.LastName + "" + data.Address + " " + data.City + " " + data.State + " " + data.Zip + " " + data.PhoneNumber + " " + data.Email);
             }
         }
-        public bool EditAContact(int phoneNumber)
-        {
-            foreach (var contact in addressBook)
-            {
-                if (contact.PhoneNumber == phoneNumber)
-                {
-
-                }
-            }
-            return false;
-        }
-        public bool DeleteAContact(int phoneNumber)
-        {
-            foreach(var contact in addressBook)
-            {
-                if(contact.PhoneNumber == phoneNumber)
-                {
-                    addressBook.Remove(contact);
-                    return true;
-                }
-            }
-            return false;
-        } 
+       
        
     }
 }
