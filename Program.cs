@@ -13,7 +13,7 @@ namespace AddressBookSystem
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("\n1 - Create a new contact  \n2 -Display all contacts  \n3 -Edit contact");
+                Console.WriteLine("\n1 - Create a new contact  \n2 -Display all contacts  \n3 -Edit contact  \n4 - Delete contact ");
                
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
@@ -28,7 +28,11 @@ namespace AddressBookSystem
                         int phoneNumber = (int)Convert.ToInt64(Console.ReadLine());
                         addressBook.EditAContact(phoneNumber);
                         break;
-
+                    case 4:
+                        Console.WriteLine("Enter the phone number which you want to delete");
+                        int phoneNumber1 = (int)Convert.ToInt32(Console.ReadLine());
+                        addressBook.DeleteContact(phoneNumber1);
+                        break;
                     default:
                         Console.WriteLine("Enter the values in range ");
                         break;

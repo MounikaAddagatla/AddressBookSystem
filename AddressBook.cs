@@ -64,6 +64,20 @@ namespace AddressBookSystem
             }
             return false;
         }
+        ////
+        ///delete contact details using phone num//
+        public bool DeleteContact(int phoneNumber)
+        {
+            foreach (var contact in addressBook)
+            {
+                if (contact.PhoneNumber == phoneNumber)
+                {
+                    addressBook.Remove(contact);
+                    return true;
+                }
+            }
+            return false;
+        }
 
     }
 }
