@@ -13,7 +13,7 @@ namespace AddressBookSystem
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("\n1 - Create a new contact  \n2 -Display all contacts   ");
+                Console.WriteLine("\n1 - Create a new contact  \n2 -Display all contacts  \n3 -Edit contact");
                
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
@@ -23,7 +23,12 @@ namespace AddressBookSystem
                     case 2:
                         addressBook.Display();
                         break;
-                   
+                    case 3:
+                        Console.WriteLine("Enter the phone number for which you want to edit the details");
+                        int phoneNumber = (int)Convert.ToInt64(Console.ReadLine());
+                        addressBook.EditAContact(phoneNumber);
+                        break;
+
                     default:
                         Console.WriteLine("Enter the values in range ");
                         break;
