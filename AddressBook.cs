@@ -4,10 +4,10 @@ using System.Text;
 
 namespace AddressBookSystem
 {
-    class AddressBook1
+    class AddressBook
     {
         List<Contacts> addressBook = new List<Contacts>();
-        public void CreatContactDetails()
+        public void CreateANewContact()
         {
             Contacts contact = new Contacts();
             Console.WriteLine(" Enter Your First name ");
@@ -36,5 +36,29 @@ namespace AddressBookSystem
                 Console.WriteLine(data.FirstName + " " + data.LastName + "" + data.Address + " " + data.City + " " + data.State + " " + data.Zip + " " + data.PhoneNumber + " " + data.Email);
             }
         }
+        public bool EditAContact(int phoneNumber)
+        {
+            foreach (var contact in addressBook)
+            {
+                if (contact.PhoneNumber == phoneNumber)
+                {
+
+                }
+            }
+            return false;
+        }
+        public bool DeleteAContact(int phoneNumber)
+        {
+            foreach(var contact in addressBook)
+            {
+                if(contact.PhoneNumber == phoneNumber)
+                {
+                    addressBook.Remove(contact);
+                    return true;
+                }
+            }
+            return false;
+        } 
+       
     }
 }
