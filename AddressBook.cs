@@ -73,10 +73,11 @@ namespace AddressBookSystem
             }
             return false;
         }
+
+        // Add New Contact Details  Using Contact class //
         public bool AddNewContact()
         {
            Contacts contact1 = new Contacts();
-
             if (contact1 == null)
             {
                 addressBook.Add(contact1);
