@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace AddressBookSystem
 {
@@ -13,29 +12,35 @@ namespace AddressBookSystem
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("\n1 - Create a new contact  \n2 -Display all contacts  \n3 -Edit contact  \n4 - Delete contact ");
+                Console.WriteLine("\n1 - Create a new contact  \n2 -Display all contacts  \n3 -Edit contact   ");
                
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
                     case 1:
+                        // for creating contact details//
                         addressBook.CreateANewContact();
                         break;
                     case 2:
+                        // for display list of contacts//
                         addressBook.Display();
                         break;
                     case 3:
-                        Console.WriteLine("Enter the phone number for which you want to edit the details");
-                        int phoneNumber = (int)Convert.ToInt64(Console.ReadLine());
-                        addressBook.EditAContact(phoneNumber);
+                        // for edit contact details//
+                        Console.WriteLine("Enter the firstName for which you want to edit the details");
+                       string firstName =Console.ReadLine();
+                        addressBook.EditContact(firstName);
                         break;
                     case 4:
-                        Console.WriteLine("Enter the phone number which you want to delete");
-                        int phoneNumber1 = (int)Convert.ToInt32(Console.ReadLine());
-                        addressBook.DeleteContact(phoneNumber1);
+                        Console.WriteLine("Enter the firstName which you want to delete");
+                        firstName = Console.ReadLine();
+                        addressBook.DeleteContact(firstName);
                         break;
-                    default:
-                        Console.WriteLine("Enter the values in range ");
-                        break;
+                        //case 5:
+                        //    flag = false;
+                        //    break;
+                        //default:
+                        //    Console.WriteLine("Enter the values in range ");
+                        //    break;
                 }
             }
             Console.ReadLine();

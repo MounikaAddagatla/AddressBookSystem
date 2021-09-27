@@ -7,6 +7,8 @@ namespace AddressBookSystem
     class AddressBook
     {
         List<Contacts> addressBook = new List<Contacts>();
+        private string firstName;
+
         public void CreateANewContact()
         {
             Contacts contact = new Contacts();
@@ -40,37 +42,30 @@ namespace AddressBookSystem
             }
         }
         ///Edit contact details in address book//
-        public bool EditAContact(int phoneNumber)
+        public bool EditContact(string firstName)
         {
             foreach (var contact in addressBook)
             {
-                if (contact.PhoneNumber == phoneNumber)
-                {
-                    Console.WriteLine(" Enter Your First name ");
+
+                if (contact.FirstName == firstName)
+                {             
+                    Console.WriteLine("Enter new name: ");
                     contact.FirstName = Console.ReadLine();
-                    Console.WriteLine(" Enter your Last name  ");
-                    contact.LastName = Console.ReadLine();
-                    Console.WriteLine(" Enter Your Address  ");
-                    contact.Address = Console.ReadLine();
-                    Console.WriteLine(" Enter Your city ");
-                    contact.City = Console.ReadLine();
-                    Console.WriteLine(" Enter your State");
-                    contact.State = Console.ReadLine();
-                    Console.WriteLine(" Enter Your Zip ");
-                    contact.Zip = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("Enter Your Email id ");
-                    contact.Email = Console.ReadLine();
+                    Console.WriteLine("Address updated for {0}", firstName);
+                    return true;
                 }
+               
             }
             return false;
+           
         }
         ////
-        ///delete contact details using phone num//
-        public bool DeleteContact(int phoneNumber)
+       //  delete contact details using first name  //
+        public bool DeleteContact(string firstName)
         {
-            foreach (var contact in addressBook)
+            foreach (Contacts contact in addressBook)
             {
-                if (contact.PhoneNumber == phoneNumber)
+                if (contact.FirstName == firstName)
                 {
                     addressBook.Remove(contact);
                     return true;
@@ -78,6 +73,19 @@ namespace AddressBookSystem
             }
             return false;
         }
+        //public bool AddNewContact()
+        //{
+        //   Contacts contact1 = new Contacts();
 
+        //    if (contact1 == null)
+        //    {
+        //        addressBook.Add(contact1);
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }
