@@ -7,7 +7,7 @@ namespace AddressBookSystem
     class AddressBook
     {
         List<Contacts> addressBook = new List<Contacts>();
-        private string firstName;
+
 
         public void CreateANewContact()
         {
