@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace AddressBookSystem
 {
     class AddressBook
     {
         List<Contacts> addressBook = new List<Contacts>();
-
+        Dictionary<string, List<Contacts>> dictionary = new Dictionary<string, List<Contacts>>();
+      
 
         public void CreateANewContact()
         {
@@ -42,51 +42,107 @@ namespace AddressBookSystem
             }
         }
         ///Edit contact details in address book//
-        public bool EditContact(string firstName)
+        public void EditContact()
         {
-            foreach (var contact in addressBook)
+            Console.WriteLine("to edit contact list enter contact firstname");
+            string name = Console.ReadLine().ToLower();
+            foreach (var data in addressBook)
             {
-
-                if (contact.FirstName == firstName)
-                {             
-                    Console.WriteLine("Enter new name: ");
-                    contact.FirstName = Console.ReadLine();
-                    Console.WriteLine("Address updated for {0}", firstName);
-                    return true;
+                if (addressBook.Contains(data))
+                {
+                    if (data.FirstName.Equals(name))
+                    {
+                        Console.WriteLine("To edit contacts enter 1.LastName\n 2.Address\n 3.City\n 4.State\n 5.Zip\n 6.PhoneNumber\n 7.Email\n");
+                        int options = Convert.ToInt32(Console.ReadLine());
+                        switch (options)
+                        {
+                            case 1:
+                                string lastname = Console.ReadLine();
+                                break;
+                            case 2:
+                                string address = Console.ReadLine();
+                                data.Address = address;
+                                break;
+                            case 3:
+                                string city = Console.ReadLine();
+                                data.City = city;
+                                break;
+                            case 4:
+                                string state = Console.ReadLine();
+                                data.State = state;
+                                break;
+                            case 5:
+                                int Zip = Convert.ToInt32(Console.ReadLine());
+                                data.Zip = Zip;
+                                break;
+                            case 6:
+                                int number = Convert.ToInt32(Console.ReadLine());
+                                data.PhoneNumber = number;
+                                break;
+                            case 7:
+                                string email = Console.ReadLine();
+                                data.Email = email;
+                                break;
+                            default:
+                                Console.WriteLine("choose valid option");
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("name doesnt matches");
+                    }
                 }
-               
+                Display();
             }
-            return false;
            
+
         }
         ////
         ///delete contact details using first name//
-        public bool DeleteContact(string firstName)
+        public void DeleteContact()
         {
-            foreach (Contacts contact in addressBook)
+            Contacts contact = new Contacts();
+            string name = Console.ReadLine();
+            foreach ( var data in addressBook)
             {
-                if (contact.FirstName == firstName)
+                if (data.Firstname.Equals(name))
                 {
                     addressBook.Remove(contact);
-                    return true;
+                    Console.WriteLine("Deleted Successfully");
+                }
+                else
+                {
+                    Console.WriteLine("given name contact does not exists");
                 }
             }
-            return false;
+            Display();
+          
+           
+        }
+        public void AddMultiContacts(int n)
+        {
+            while (n > 0)
+            {
+                CreateANewContact();
+                n--;
+            }
+        }
+        public void AddressBookInDictionary()
+        {
+            Console.WriteLine("Enter the name of Dictionary");
+            string name = Console.ReadLine();
+            foreach (var contacts in dictionary)
+            {
+                if (contacts.Key.Contains(name))
+                {
+                    foreach (var data in contacts.Value)
+                    {
+                        Display();
+                    }
+                }
+            }
         }
 
-        // Add New Contact Details  Using Contact class //
-        public bool AddNewContact()
-        {
-           Contacts contact1 = new Contacts();
-            if (contact1 == null)
-            {
-                addressBook.Add(contact1);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
     }
 }
