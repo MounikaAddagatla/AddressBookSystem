@@ -125,7 +125,7 @@ namespace AddressBookSystem
             while (n > 0)
             {
                 CreateANewContact();
-                n--;
+                n--;                            ///n = no for contacts to add 
             }
         }
         public void AddressBookInDictionary()
