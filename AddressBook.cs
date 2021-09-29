@@ -138,9 +138,10 @@ namespace AddressBookSystem
                 {
                     foreach (var data in contacts.Value)
                     {
-                        Display();
+                        Console.WriteLine(data.FirstName + " " + data.LastName + "" + data.Address + " " + data.City + " " + data.State + " " + data.Zip + " " + data.PhoneNumber + " " + data.Email);
                     }
                 }
+                
             }
         }
 
