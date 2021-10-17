@@ -8,7 +8,7 @@ namespace AddressBookSystem
     {
         List<Contacts> addressBook = new List<Contacts>();
         Dictionary<string, List<Contacts>> dictionary = new Dictionary<string, List<Contacts>>();
-      
+
 
         public void CreateANewContact()
         {
@@ -34,10 +34,10 @@ namespace AddressBookSystem
         /// <summary>
         /// /Display the cantact list in address book//
         /// </summary>
-      public void Display()
+        public void Display()
         {
-            Console.WriteLine( " Contact Details in List ");
-            foreach(var data in addressBook)
+            Console.WriteLine(" Contact Details in List ");
+            foreach (var data in addressBook)
             {
                 Console.WriteLine(data.FirstName + " " + data.LastName + "" + data.Address + " " + data.City + " " + data.State + " " + data.Zip + " " + data.PhoneNumber + " " + data.Email);
             }
@@ -96,7 +96,7 @@ namespace AddressBookSystem
                 }
                 Display();
             }
-           
+
 
         }
         ////
@@ -105,7 +105,7 @@ namespace AddressBookSystem
         {
             Contacts contact = new Contacts();
             string name = Console.ReadLine();
-            foreach ( var data in addressBook)
+            foreach (var data in addressBook)
             {
                 if (data.Firstname.Equals(name))
                 {
@@ -118,8 +118,8 @@ namespace AddressBookSystem
                 }
             }
             Display();
-          
-           
+
+
         }
         public void AddMultiContacts(int n)
         {
@@ -142,14 +142,14 @@ namespace AddressBookSystem
                         Console.WriteLine(data.FirstName + " " + data.LastName + "" + data.Address + " " + data.City + " " + data.State + " " + data.Zip + " " + data.PhoneNumber + " " + data.Email);
                     }
                 }
-                
+
             }
         }
         // check whether the same person exist
         public bool Check(string fname)
         {
             int flag = 0;
-            foreach(Contacts cantact in addressBook)
+            foreach (Contacts cantact in addressBook)
             {
                 if (cantact.FirstName.Equals(fname))
                 //check first name and enter details are equl or not
@@ -158,14 +158,58 @@ namespace AddressBookSystem
                     break;
                 }
             }
-            if(flag == 1)
+            if (flag == 1)
             {
                 return true;
             }
             return false;
         }
-       
-
-
+        public void SearchCityOrState()
+        {
+            Console.WriteLine("1.city \n2. state \n Enter Choice");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            if (choice == 1)
+            {
+                int count = 0;
+                Console.WriteLine("search contact by city");
+                Console.WriteLine("Enter city");
+                string city = Console.ReadLine();
+                for (int i = 0; i < addressBook.Count; i++) // check record present or not
+                {
+                    if (addressBook[i].City.Equals(city))
+                    {
+                        count++;
+                        Console.WriteLine($"Name : {addressBook[i].FirstName} City : {addressBook[i].City}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{city} city Name of Record not found"); // print record not found
+                    }
+                }
+                Console.WriteLine($"\n number of contact in the City :- {city} are {count}"); // for count
+            }
+            else
+            {
+                int count = 0;
+                Console.WriteLine("search contact by State");
+                Console.WriteLine("Enter State");
+                string state = Console.ReadLine();
+                for (int i = 0; i < addressBook.Count; i++) // check record present or not
+                {
+                    if (addressBook[i].State.Equals(state))
+                    {
+                        count++;
+                        Console.WriteLine($"Name : {addressBook[i].FirstName} State : {addressBook[i].State}");
+                        // view person by phone number  
+                        Console.WriteLine($" Phonenum : {addressBook[i].PhoneNumber} State : {addressBook[i].State}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{state} State Name of Record not found"); // print record not found
+                    }
+                }
+                Console.WriteLine($"\n number of contact in the State :- {state} are {count}"); // for count
+            }
+        }
     }
 }
