@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AddressBookSystem
 {
@@ -144,6 +145,27 @@ namespace AddressBookSystem
                 
             }
         }
+        // check whether the same person exist
+        public bool Check(string fname)
+        {
+            int flag = 0;
+            foreach(Contacts cantact in addressBook)
+            {
+                if (cantact.FirstName.Equals(fname))
+                //check first name and enter details are equl or not
+                {
+                    flag = 1;
+                    break;
+                }
+            }
+            if(flag == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+       
+
 
     }
 }

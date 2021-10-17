@@ -17,7 +17,8 @@ namespace AddressBookSystem
             while (flag)
             {
 
-                Console.WriteLine("\n1 - Create a new contact  \n2 -Display all contacts  \n3 -Edit contact \n4 -Delete contact  \n5 -Add multiple contacts \n6 -addressBook in Dictonary \n7 -Quit");
+                Console.WriteLine("\n1 - Create a new contact  \n2 -Display all contacts  \n3 -Edit contact \n4 -Delete contact  \n5 -Add multiple contacts " +
+                    "\n6 -addressBook in Dictonary \n7 - Check person exist or not ");
 
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
@@ -46,14 +47,19 @@ namespace AddressBookSystem
                     case 5:
                         /// add multiple contacts
                         addressBook.AddMultiContacts(2);
+                        addressBook.Display();
                         break;
                     case 6:
                         // adding a new addressbook//
                         addressBook.AddressBookInDictionary();
+                        addressBook.Display();
                         break;
                     case 7:
-                        flag = false;
+                        string var = Console.ReadLine();
+                        Console.WriteLine(addressBook.Check(var)); // return bool value
+                        
                         break;
+                   
                     default:
                         Console.WriteLine("enter the values in range ");
                         break;
