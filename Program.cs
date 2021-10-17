@@ -18,7 +18,7 @@ namespace AddressBookSystem
             {
 
                 Console.WriteLine("\n1 - Create a new contact  \n2 -Display all contacts  \n3 -Edit contact \n4 -Delete contact  \n5 -Add multiple contacts " +
-                    "\n6 -addressBook in Dictonary \n7 - Check person exist or not ");
+                    "\n6 -addressBook in Dictonary \n7 - Check person exist or not \n8 - Search person by city/state");
 
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
@@ -57,9 +57,11 @@ namespace AddressBookSystem
                     case 7:
                         string var = Console.ReadLine();
                         Console.WriteLine(addressBook.Check(var)); // return bool value
-                        
                         break;
-                   
+                    case 8:
+                        addressBook.SearchCityOrState();
+                        addressBook.Display();
+                        break;
                     default:
                         Console.WriteLine("enter the values in range ");
                         break;
