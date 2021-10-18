@@ -179,14 +179,14 @@ namespace AddressBookSystem
                     if (addressBook[i].City.Equals(city))
                     {
                         count++;
-                        Console.WriteLine($"Name : {addressBook[i].FirstName} City : {addressBook[i].City}");
+                        
                     }
                     else
                     {
                         Console.WriteLine($"{city} city Name of Record not found"); // print record not found
                     }
                 }
-                Console.WriteLine($"\n number of contact in the City :- {city} are {count}"); // for count
+               
             }
             else
             {
@@ -199,16 +199,14 @@ namespace AddressBookSystem
                     if (addressBook[i].State.Equals(state))
                     {
                         count++;
-                        Console.WriteLine($"Name : {addressBook[i].FirstName} State : {addressBook[i].State}");
-                        // view person by phone number  
-                        Console.WriteLine($" Phonenum : {addressBook[i].PhoneNumber} State : {addressBook[i].State}");
+                      
                     }
                     else
                     {
                         Console.WriteLine($"{state} State Name of Record not found"); // print record not found
                     }
                 }
-                Console.WriteLine($"\n number of contact in the State :- {state} are {count}"); // for count
+               
             }
         }
     }
