@@ -18,8 +18,7 @@ namespace AddressBookSystem
             {
 
                 Console.WriteLine("\n1 - Create a new contact  \n2 -Display all contacts  \n3 -Edit contact \n4 -Delete contact  \n5 -Add multiple contacts " +
-                    "\n6 -addressBook in Dictonary \n7 - Check person exist or not \n8 - Search person by city/state " +
-                    "\n9 -view person by City/state \n10 - View person PhnNm  \n11 - Quit");
+                    "\n6 -addressBook in Dictonary \n7 - Check person exist or not \n8 - Search person by city/state  \n9 - view person name with state  \n10 - Quit");
 
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
@@ -64,14 +63,11 @@ namespace AddressBookSystem
                         addressBook.Display();
                         break;
                     case 9:
-                        addressBook.SearchCityOrState();  // display person contact details
+                        addressBook.SearchCityOrState();
                         addressBook.Display();
                         break;
+
                     case 10:
-                        addressBook.SearchCityOrState(); // display person phn number
-                        addressBook.Display();
-                        break;
-                    case 11:
                         flag = false;
                         break;
                     default:
