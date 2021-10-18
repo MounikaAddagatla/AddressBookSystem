@@ -179,7 +179,7 @@ namespace AddressBookSystem
                     if (addressBook[i].City.Equals(city))
                     {
                         count++;
-                        
+                        Console.WriteLine($"Name : {addressBook[i].FirstName} City : {addressBook[i].City}");
                     }
                     else
                     {
@@ -199,7 +199,7 @@ namespace AddressBookSystem
                     if (addressBook[i].State.Equals(state))
                     {
                         count++;
-                      
+                        Console.WriteLine($"Name : {addressBook[i].FirstName} State : {addressBook[i].State}");
                     }
                     else
                     {
