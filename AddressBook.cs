@@ -605,5 +605,72 @@ namespace AddressBookSystem
                 Console.WriteLine(ex.Message);
             }
         }
+        public void ReadJsonFile()
+        {
+            string filePath = @"E:\AddressBookSystem\AddressBookSystem\Contact.json";
+            try
+            {
+                string[] fileContents = File.ReadAllLines(filePath);
+                var currentAbName = fileContents[0];
+                contacts = new List<Contacts>();
+                foreach (string i in fileContents.Skip(1))
+                {
+                    if (i.Contains(","))
+                    {
+                        Contacts person = new Contacts();
+                        string[] line = i.Split(",");
+                        String lines;
+                        lines = File.ReadAllText(filePath);
+                        Console.WriteLine(lines);
+                        contacts.Add(person);
+                    }
+                    else
+                    {
+                        addressBookDictionary.Add(currentAbName, contacts);
+                        currentAbName = i;
+                        contacts = new List<Contacts>();
+                    }
+                }
+                addressBookDictionary.Add(currentAbName, contacts);
+                Console.WriteLine("SuccessFully Added");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void WriteJsonFile()
+        {
+            string filePath = @"E:\AddressBookSystem\AddressBookSystem\Contact.json";
+
+            try
+            {
+                if (addressBookDictionary.Count > 0)
+                {
+                    File.WriteAllText(filePath, "Added one more info");
+                    //printing the values in address book
+                    foreach (KeyValuePair<string, List<Contacts>> dict in addressBookDictionary)
+                    {
+                        File.AppendAllText(filePath, $"{dict.Key}\n");
+                        foreach (var addressBook in dict.Value)
+                        {
+                            string text = $"{addressBook.FirstName}   ,{addressBook.LastName}, {addressBook.Address}," +
+                                $"{addressBook.City} ,{addressBook.State},  {addressBook.Zip}, {addressBook.PhoneNumber}, {addressBook.Email}\n";
+                            File.AppendAllText(filePath, text);
+                        }
+                    }
+                    Console.WriteLine("successfully stored in file");
+                }
+                else
+                {
+                    Console.WriteLine("Address Book is Empty");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
