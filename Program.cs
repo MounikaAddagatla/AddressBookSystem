@@ -15,7 +15,7 @@ namespace AddressBookSystem
             {
                 Console.WriteLine("*********************************************************");
                 Console.WriteLine("1.Add member to Contact list \n2.View Members in Contact List \n3.Edit members Contacts list\n4.Delete members Contacts list\n" +
-                    "5.Search by name \n6.Count by state or city\n7 SortByAlphabet");
+                    "5.Search by name \n6.Count by state or city \n7 SortByAlphabet \n8 -Sort by City/State/Zip ");
                 Console.WriteLine("Enter an option:");
                 switch (Convert.ToInt32(Console.ReadLine()))
                 {
@@ -39,6 +39,9 @@ namespace AddressBookSystem
                         break;
                     case 7:
                         addressBook.SortEntriesAlphabetically();
+                        break;
+                    case 8:
+                        addressBook.SortByCityStateZip();
                         break;
                     default:
                         // to exit from main method
